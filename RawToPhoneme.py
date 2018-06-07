@@ -6,7 +6,7 @@ from sphinxbase.sphinxbase import *
 
 MODELDIR = "C:/Python27/Lib/site-packages/pocketsphinx/model"
 DATADIR = "C:/Python27/Lib/site-packages/data"
-SAMPLE_RATE = 41000
+SAMPLE_RATE = 16000
 CHUNK_SIZE = 1024
 
 # Create a decoder with certain model
@@ -21,7 +21,7 @@ config.set_float('-pbeam', 1e-10)
 decoder = Decoder(config)
 
 decoder.start_utt()
-stream = open(path.join(DATADIR, '/banana.raw'), 'rb')
+stream = open('newfile.raw', 'rb')
 while True:
   buf = stream.read(1024)
   if buf:
@@ -30,5 +30,4 @@ while True:
     break
 decoder.end_utt()
 
-hypothesis = decoder.hyp()
 print ('Phonemes: ', [seg.word for seg in decoder.seg()])

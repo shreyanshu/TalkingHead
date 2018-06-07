@@ -6,7 +6,7 @@ FORMAT = pyaudio.paInt16
 CHANNELS = 1
 RATE = 16000
 CHUNK = 1024
-RECORD_SECONDS = 3
+RECORD_SECONDS = 1
 
 audio = pyaudio.PyAudio()
 
