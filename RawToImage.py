@@ -1,0 +1,23 @@
+map = {
+    'SIL': 'rest.png',
+    'G': 'E.png',
+    'OW': 'O.png',
+    'F': 'FV.png',
+    'AO': 'O.png',
+    'R': 'AI.png',
+    'W': 'WQ.png',
+    'ER': 'E.png',
+    'EH': 'E.png',
+    'D': 'etc.png',
+    'JH': 'etc.png',
+    'T': 'L.png',
+    'EN': 'E.png',
+    'M': 'MBP.png',
+    'IY': 'etc.png',
+    'IH': 'etc.png',
+    'ZH': 'etc.png',
+    'Z': 'etc.png',
+    'S': 'etc.png',
+    'V': 'U.png',
+    'N': 'L.png'
+}

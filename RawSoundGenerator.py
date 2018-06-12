@@ -29,7 +29,6 @@ stream.close()
 audio.terminate()
 
 
-
-file = open("newfile.raw", "wb")
+file = open("newfile_test.raw", "wb")
 file.write(b''.join(frames))
 file.close()
