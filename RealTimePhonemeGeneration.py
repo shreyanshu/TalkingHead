@@ -17,22 +17,21 @@ config.set_float('-lw', 2.0)
 config.set_float('-beam', 1e-10)
 config.set_float('-pbeam', 1e-10)
 
-def phonemes():
   # Decode streaming data
-  decoder = Decoder(config)
+decoder = Decoder(config)
 
-  decoder.start_utt()
-  stream = open('tablechair.raw', 'rb')
-  while True:
-    buf = stream.read()
-    if buf:
-      decoder.process_raw(buf, False, False)
-    else:
-      break
-  decoder.end_utt()
 
-  print([seg.word for seg in decoder.seg()])
+def break_phoneme(file_name):
+    decoder.start_utt()
+    stream = open(file_name, 'rb')
+    while True:
+        buf = stream.read()
+        if buf:
+          decoder.process_raw(buf, False, False)
+        else:
+          break
+        decoder.end_utt()
 
-  return [seg.word for seg in decoder.seg()]
+    print(str(file_name) + str([seg.word for seg in decoder.seg()]))
 
-phonemes()
+

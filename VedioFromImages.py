@@ -23,7 +23,7 @@ def makeFaceAnimation(phonemeList):
 
     for p in phonemeList:
         im1.set_data(grab_frame(p))
-        plt.pause(0.2)
+        plt.pause(0.5)
 
     im1.set_data(grab_frame('SIL'))
     plt.ioff() # due to infinite loop, this gets never called.

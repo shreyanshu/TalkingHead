@@ -6,7 +6,7 @@ FORMAT = pyaudio.paInt16
 CHANNELS = 1
 RATE = 16000
 CHUNK = 1024
-RECORD_SECONDS = 1
+RECORD_SECONDS = 3
 
 audio = pyaudio.PyAudio()
 
@@ -28,7 +28,6 @@ stream.stop_stream()
 stream.close()
 audio.terminate()
 
-
-file = open("newfile_test.raw", "wb")
+file = open("test.raw", "wb")
 file.write(b''.join(frames))
 file.close()
