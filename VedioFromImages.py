@@ -12,9 +12,17 @@ def grab_frame(p):
 
 
 
+def makeFirstFace():
+    print("testafgs")
+    ax1 = plt.subplot(111)
+    im1 = ax1.imshow(grab_frame('SIL'))
+    plt.ion()
+    plt.ioff()  # due to infinite loop, this gets never called.
+    plt.show()
+
+
 def makeFaceAnimation(phonemeList):
     #create axes
-    ax1 = plt.subplot(111)
 
     #create image plot
     im1 = ax1.imshow(grab_frame('SIL'))

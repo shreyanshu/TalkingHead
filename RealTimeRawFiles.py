@@ -1,5 +1,7 @@
 import pyaudio
 import wave
+import threading
+import RealTimePhonemeGeneration
 
 FORMAT = pyaudio.paInt16
 
@@ -12,7 +14,7 @@ RECORD_SECONDS = 0.4
 def run():
     j = 1
 
-    while j<=800:
+    while j<=5:
 
         audio = pyaudio.PyAudio()
 
@@ -36,4 +38,8 @@ def run():
         file.write(b''.join(frames))
         file.close()
 
+        t1 = threading.Thread(target=RealTimePhonemeGeneration.break_phoneme("RawFilesInRealTime/" + str(j) + ".raw"))
+        t1.start()
+
         j = j + 1
+
