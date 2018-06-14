@@ -6,34 +6,34 @@ FORMAT = pyaudio.paInt16
 CHANNELS = 1
 RATE = 16000
 CHUNK = 1024
-RECORD_SECONDS = 1
+RECORD_SECONDS = 0.4
 
 # start Recording
+def run():
+    j = 1
 
-j = 1
+    while j<=800:
 
-while True:
+        audio = pyaudio.PyAudio()
 
-    audio = pyaudio.PyAudio()
+        stream = audio.open(format=FORMAT, channels=CHANNELS,
+                            rate=RATE, input=True,
+                            frames_per_buffer=CHUNK)
+        print "recording..."
 
-    stream = audio.open(format=FORMAT, channels=CHANNELS,
-                        rate=RATE, input=True,
-                        frames_per_buffer=CHUNK)
-    print "recording..."
+        frames = []
+        for i in range(0, int(RATE / CHUNK * RECORD_SECONDS)):
+            data = stream.read(CHUNK)
+            frames.append(data)
+        print "finished recording"
 
-    frames = []
-    for i in range(0, int(RATE / CHUNK * RECORD_SECONDS)):
-        data = stream.read(CHUNK)
-        frames.append(data)
-    print "finished recording"
+        # stop Recording
+        stream.stop_stream()
+        stream.close()
+        audio.terminate()
 
-    # stop Recording
-    stream.stop_stream()
-    stream.close()
-    audio.terminate()
+        file = open("RawFilesInRealTime/" + str(j) + ".raw", "wb")
+        file.write(b''.join(frames))
+        file.close()
 
-    file = open("RawFilesInRealTime/" + str(j) + ".raw", "wb")
-    file.write(b''.join(frames))
-    file.close()
-
-    j = j + 1
+        j = j + 1

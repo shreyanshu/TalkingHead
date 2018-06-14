@@ -22,7 +22,7 @@ def phonemes():
   decoder = Decoder(config)
 
   decoder.start_utt()
-  stream = open('tablechair.raw', 'rb')
+  stream = open('test_shreyansh.raw', 'rb')
   while True:
     buf = stream.read()
     if buf:

@@ -21,7 +21,7 @@ config.set_float('-pbeam', 1e-10)
 decoder = Decoder(config)
 
 decoder.start_utt()
-stream = open('RawFilesInRealTime/2.raw', 'rb')
+stream = open('aajokofinaltest_filtered.raw', 'rb')
 while True:
     buf = stream.read()
     if buf:

@@ -5,8 +5,8 @@ import sys
 import math
 import contextlib
 
-fname = 'test.wav'
-outname = 'filtered.wav'
+fname = 'aajokofinaltest.wav'
+outname = 'aajokofinaltest_filtered.wav'
 
 cutOffFrequency = 400.0
 
