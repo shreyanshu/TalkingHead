@@ -2,6 +2,8 @@
 from os import environ, path
 
 from pocketsphinx.pocketsphinx import *
+import threading
+import VedioFromImages
 # from sphinxbase.sphinxbase import *
 
 MODELDIR = "C:/Python27/Lib/site-packages/pocketsphinx/model"
@@ -35,5 +37,10 @@ def break_phoneme(file_name):
     print(str(file_name) + str([seg.word for seg in decoder.seg()]))
 
     ''' Write the new thread here '''
+
+    phonemeList = [seg.word for seg in decoder.seg()]
+
+    VedioFromImages.makeFaceAnimation(phonemeList)
+    # thread_face_animate.start()
 
 

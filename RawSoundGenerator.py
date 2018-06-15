@@ -28,6 +28,6 @@ stream.stop_stream()
 stream.close()
 audio.terminate()
 
-file = open("aajokofinaltest.raw", "wb")
+file = open("classtest.raw", "wb")
 file.write(b''.join(frames))
 file.close()

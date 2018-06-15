@@ -14,7 +14,7 @@ map = {
     'OY': 'O.jpg',
     'OW': 'O.jpg',
     'AO': 'O.jpg',
-    'AA': 'O.jpg',
+    'AA': 'AI.jpg',
     'P': 'MBP.jpg',
     'M': 'MBP.jpg',
     'B': 'MBP.jpg',
