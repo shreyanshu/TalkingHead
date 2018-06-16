@@ -40,7 +40,7 @@ def break_phoneme(file_name):
 
     phonemeList = [seg.word for seg in decoder.seg()]
 
-    VedioFromImages.makeFaceAnimation(phonemeList)
+    # VedioFromImages.makeFaceAnimation(phonemeList)
     # thread_face_animate.start()
 
 

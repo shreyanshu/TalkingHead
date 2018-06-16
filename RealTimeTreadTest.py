@@ -13,28 +13,28 @@ def grab_frame(p):
     return image
 
 ax1 = plt.subplot(111)
-
-
 im1 = ax1.imshow(grab_frame('SIL'))
-plt.ion()
-plt.pause(0.3)
-im1.set_data(grab_frame('AA'))
-plt.ioff()  # due to infinite loop, this gets never called.
-plt.show()
+# plt.ion()
+# plt.pause(0.9)
 
-def makeFaceAnimation():
-    iml.set_data(grab_frame('HH'))
-    plt.show()
 
 def makeStartFace():
-    im1 = ax1.imshow(grab_frame('SIL'))
+    im1 = ax1.imshow(grab_frame('AA'))
     plt.ion()
-    plt.pause(0.3)
+    plt.pause(.9)
 
 
-# thread1 = threading.Thread(target=makeFirstFace)
-# #
-# thread1.start()
+def makeFaceAnimation():
+    im1.set_data(grab_frame('AA'))
+    plt.pause(.9)
+    im1.set_data(grab_frame('W'))
+    plt.ioff()  # due to infinite loop, this gets never called.
+    plt.show()
+
+
+thread1 = threading.Thread(target=makeFaceAnimation)
+#
+thread1.start()
 # time.sleep(1)
 # thread2 = threading.Thread(target=makeFaceAnimation)
 # thread2.start()
