@@ -33,11 +33,11 @@ def makeFaceAnimation():
 
 
 thread1 = threading.Thread(target=makeFaceAnimation)
-#
 thread1.start()
-# time.sleep(1)
-# thread2 = threading.Thread(target=makeFaceAnimation)
-# thread2.start()
+thread1.join()
+thread2 = threading.Thread(target=makeFaceAnimation)
+# thread2.join()
+thread2.start()
 # makeFirstFace()
 # time.sleep(.5)
 # makeFaceAnimation()

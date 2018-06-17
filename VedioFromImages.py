@@ -40,6 +40,7 @@ def makeFaceAnimation(phonemeList):
     plt.ioff() # due to infinite loop, this gets never called.
     plt.show()
 
+    plt.close()
     # # print("testafgs")
     # # ax1 = plt.subplot(111)
     # im1 = ax1.imshow(grab_frame('W'))
