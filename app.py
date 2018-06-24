@@ -19,10 +19,10 @@ def hello_world():
 def hello():
     DemoMain.run()
     return render_template('index.html')
-
-@app.route('/form')
-def form():
-    render_template('selectFace.html')
+#
+# @app.route('/form')
+# def form():
+#     render_template('selectFace.html')
 
 
 @app.route('/form')
@@ -43,6 +43,11 @@ def upload_file():
             flash('No file part')
             return redirect(request.url)
         file = request.files['file']
+
+        result = request.form
+
+        print(result['gender'])
+
         # if user does not select file, browser also
         # submit a empty part without filename
         if file.filename == '':
