@@ -15,6 +15,10 @@ def hello():
     DemoMain.run()
     return render_template('index.html')
 
+@app.route('/form')
+def form():
+    render_template('selectFace.html')
+
 if __name__ == '__main__':
     app.run()
 
