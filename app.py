@@ -46,7 +46,7 @@ def upload_file():
 
         result = request.form
 
-        print(result['mouth'])
+        # print(result['mouth'])
 
         # if user does not select file, browser also
         # submit a empty part without filename
@@ -56,8 +56,11 @@ def upload_file():
         if file and allowed_file(file.filename):
             filename = secure_filename('raw_file.raw')
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+            DemoMain.run(result['mouth'])
             return redirect(url_for('upload_file',
                                     filename=filename))
+
+
     return render_template('index.html')
 
 

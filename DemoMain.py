@@ -2,9 +2,9 @@ import RawToPhoneme
 import VedioFromImages
 #
 
-def run():
+def run(mouth):
     phonemelist = RawToPhoneme.phonemes()
     # print(phonemelist)
-    VedioFromImages.makeFaceAnimation(phonemelist)
+    VedioFromImages.makeFaceAnimation(phonemelist, mouth)
 
 
