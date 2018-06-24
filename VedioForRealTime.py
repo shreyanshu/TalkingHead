@@ -11,7 +11,12 @@ ax1 = plt.subplot(111)
 
 def grab_frame(p):
     # test = random.randint(0, 2)
-    image = cv2.imread('images/'+RawToImage.map[p])
+    if p in RawToImage.map.keys():
+        image = cv2.imread('images/'+RawToImage.map[p])
+
+    else:
+        image = cv2.imread('images/'+RawToImage.map['SIL'])
+
     print(p)
     # image_gray = cv2.cvtColor(image, cv2.COLOR_RGB2GRAY)
     return image
@@ -31,12 +36,12 @@ def makeFaceAnimation(phonemeList):
     ax1 = plt.subplot()
     #create image plot
     im1 = ax1.imshow(grab_frame('SIL'))
-    plt.pause(0.75)
-    RawToWav.run('rawFile/raw_file.raw')
-    length = GetWavFileDuration.get_length('wavFile/test.wav')
-    pauseTime = length/len(phonemeList)
-    th = threading.Thread(target=PlayRawAudio.run)
-    th.start()
+
+    if len(phonemeList) != 0:
+        pauseTime = 0.4/len(phonemeList)
+
+    else:
+        pauseTime = 0.1
 
     # print(pauseTime)
     # plt.pause(2)
@@ -47,11 +52,10 @@ def makeFaceAnimation(phonemeList):
         plt.pause(pauseTime/1.2)
 
     im1.set_data(grab_frame('SIL'))
-    plt.pause(0.75)
     plt.ioff() # due to infinite loop, this gets never called.
     # plt.show()
 
-    plt.close('all')
+    # plt.close('all')
     return
     # # print("testafgs")
     # # ax1 = plt.subplot(111)

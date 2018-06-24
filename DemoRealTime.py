@@ -19,3 +19,5 @@ def run():
 
     except:
         print "failed"
+
+run()
