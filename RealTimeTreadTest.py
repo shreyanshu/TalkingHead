@@ -32,12 +32,24 @@ def makeFaceAnimation():
     plt.show()
 
 
-thread1 = threading.Thread(target=makeFaceAnimation)
+def print1():
+    i=0
+    for i in range(1,100):
+        print(i)
+
+
+thread1 = threading.Thread(target=makeStartFace)
 thread1.start()
-thread1.join()
+#
+# t = threading.Thread(target=print1)
+# t.start()
+# t.join()
+
 thread2 = threading.Thread(target=makeFaceAnimation)
 # thread2.join()
 thread2.start()
+thread2.join()
+
 # makeFirstFace()
 # time.sleep(.5)
 # makeFaceAnimation()

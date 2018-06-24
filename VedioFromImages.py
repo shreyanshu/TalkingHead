@@ -1,7 +1,8 @@
+
 import cv2
 import matplotlib.pyplot as plt
 import RawToImage
-import random
+# import random
 
 ax1 = plt.subplot(111)
 
@@ -11,7 +12,6 @@ def grab_frame(p):
     print(p)
     # image_gray = cv2.cvtColor(image, cv2.COLOR_RGB2GRAY)
     return image
-
 
 
 def makeFirstFace():
@@ -29,6 +29,8 @@ def makeFaceAnimation(phonemeList):
     #create image plot
     im1 = ax1.imshow(grab_frame('SIL'))
 
+
+
     plt.ion()
 
     for p in phonemeList:
@@ -38,9 +40,10 @@ def makeFaceAnimation(phonemeList):
 
     im1.set_data(grab_frame('SIL'))
     plt.ioff() # due to infinite loop, this gets never called.
-    plt.show()
+    # plt.show()
 
-    plt.close()
+    plt.close('all')
+    return
     # # print("testafgs")
     # # ax1 = plt.subplot(111)
     # im1 = ax1.imshow(grab_frame('W'))

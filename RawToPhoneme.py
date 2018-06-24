@@ -22,7 +22,7 @@ def phonemes():
   decoder = Decoder(config)
 
   decoder.start_utt()
-  stream = open('pani.raw', 'rb')
+  stream = open('classtest2.raw', 'rb')
   while True:
     buf = stream.read()
     if buf:
@@ -31,7 +31,7 @@ def phonemes():
       break
   decoder.end_utt()
 
-  # print([seg.word for seg in decoder.seg()])
+  print([seg.word for seg in decoder.seg()])
 
   return [seg.word for seg in decoder.seg()]
 
