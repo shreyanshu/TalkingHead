@@ -23,7 +23,7 @@ config.set_float('-pbeam', 1e-10)
 decoder = Decoder(config)
 
 
-def break_phoneme(file_name):
+def break_phoneme(file_name, mouth):
     decoder.start_utt()
     stream = open(file_name, 'rb')
     while True:
@@ -40,7 +40,7 @@ def break_phoneme(file_name):
 
     phonemeList = [seg.word for seg in decoder.seg()]
 
-    vp.makeFaceAnimation(phonemeList)
+    vp.makeFaceAnimation(phonemeList, mouth)
     # thread_face_animate.start()
 
 

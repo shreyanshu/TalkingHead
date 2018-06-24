@@ -3,6 +3,7 @@ import DemoMain
 import os
 import DemoRealTime
 from werkzeug.utils import secure_filename
+import matplotlib.pyplot as plt
 
 
 app = Flask(__name__)
@@ -15,11 +16,6 @@ def hello_world():
     return render_template('index.html')
 
 
-@app.route('/play')
-def hello():
-    DemoMain.run()
-    return render_template('index.html')
-#
 # @app.route('/form')
 # def form():
 #     render_template('selectFace.html')
@@ -28,6 +24,12 @@ def hello():
 @app.route('/form')
 def form():
     return render_template('uploadFormTest.html')
+
+
+@app.route('/realtimeform')
+def realTimeForm():
+    # if request.method == 'POST':
+    return render_template('RealTimeForm.html')
 
 
 def allowed_file(filename):
@@ -62,6 +64,15 @@ def upload_file():
 
 
     return render_template('index.html')
+
+
+@app.route('/realtime',  methods=['GET', 'POST'])
+def realtime():
+    if request.method == 'POST':
+        result = request.form
+        DemoRealTime.run(result['mouth'])
+        plt.close('all')
+    return render_template('RealTimeForm.html')
 
 
 if __name__ == '__main__':

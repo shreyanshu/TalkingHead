@@ -4,9 +4,9 @@ import threading
 import VedioFromImages
 import time
 
-def run():
+def run(mouth):
     try:
-        t = threading.Thread(target=RealTimeRawFiles.run)
+        t = threading.Thread(target=RealTimeRawFiles.run(mouth))
         t.start()
         #
         # t_face = threading.Thread(target=VedioFromImages.makeFirstFace)

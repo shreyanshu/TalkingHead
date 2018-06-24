@@ -11,7 +11,11 @@ ax1 = plt.subplot(111)
 
 def grab_frame(p, mouth):
     # test = random.randint(0, 2)
-    image = cv2.imread('image1/'+str(mouth)+"/"+RawToImage.map[p])
+    if p in RawToImage.map.keys():
+        image = cv2.imread('image1/'+str(mouth)+"/"+RawToImage.map[p])
+
+    else:
+        image = cv2.imread('image1/' + str(mouth) + "/" + RawToImage.map['SIL'])
     print(p)
     # image_gray = cv2.cvtColor(image, cv2.COLOR_RGB2GRAY)
     return image
@@ -45,7 +49,7 @@ def makeFaceAnimation(phonemeList, mouth):
     for p in phonemeList:
         # print(p)
         im1.set_data(grab_frame(p, mouth))
-        plt.pause(pauseTime/1.2)
+        plt.pause(pauseTime/1.5)
 
     im1.set_data(grab_frame('SIL', mouth))
     plt.pause(0.75)

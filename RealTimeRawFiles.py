@@ -11,7 +11,7 @@ CHUNK = 1024
 RECORD_SECONDS = 0.4
 
 # start Recording
-def run():
+def run(mouth):
     j = 1
 
     while j<=5:
@@ -38,7 +38,7 @@ def run():
         file.write(b''.join(frames))
         file.close()
 
-        t1 = threading.Thread(target=RealTimePhonemeGeneration.break_phoneme("RawFilesInRealTime/" + str(j) + ".raw"))
+        t1 = threading.Thread(target=RealTimePhonemeGeneration.break_phoneme("RawFilesInRealTime/" + str(j) + ".raw", mouth))
         t1.start()
 
         j = j + 1
