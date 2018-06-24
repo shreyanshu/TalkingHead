@@ -31,7 +31,7 @@ def phonemes():
       break
   decoder.end_utt()
 
-  print([seg.word for seg in decoder.seg()])
+  # print([seg.word for seg in decoder.seg()])
 
   return [seg.word for seg in decoder.seg()]
 

@@ -4,6 +4,7 @@ import os
 import DemoRealTime
 from werkzeug.utils import secure_filename
 import matplotlib.pyplot as plt
+import RawToPhoneme
 
 
 app = Flask(__name__)
@@ -31,6 +32,37 @@ def realTimeForm():
     # if request.method == 'POST':
     return render_template('RealTimeForm.html')
 
+
+@app.route('/breakPhonemes')
+def breakPhoneme():
+    # if request.method == 'POST':
+    return render_template('breakPhoneme.html')
+
+
+@app.route('/splitPhonemes', methods=['GET', 'POST'])
+def splitPhoneme():
+    if request.method == 'POST':
+        # check if the post request has the file part
+        if 'file' not in request.files:
+            print('No file part')
+            # return redirect(request.url)
+        file = request.files['file']
+
+        result = request.form
+
+        # print(result['mouth'])
+
+        # if user does not select file, browser also
+        # submit a empty part without filename
+        if file.filename == '':
+            flash('No selected file')
+            return redirect(request.url)
+        if file and allowed_file(file.filename):
+            filename = secure_filename('raw_file.raw')
+            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+            phonemeList = RawToPhoneme.phonemes()
+
+        return render_template('breakPhoneme.html', phonemeList=phonemeList)
 
 def allowed_file(filename):
     return '.' in filename and \
